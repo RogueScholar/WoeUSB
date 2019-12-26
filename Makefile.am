@@ -1,8 +1,7 @@
 
 SUBDIRS = \
 	src\
-	innoSetup\
-	debian
+	innoSetup
 
 # M4
 

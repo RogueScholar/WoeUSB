@@ -38,7 +38,6 @@ AC_OUTPUT([Makefile
 	src/locale/zh_TW/Makefile
 	src/locale/fr/LC_MESSAGES/Makefile
 	src/locale/zh_TW/LC_MESSAGES/Makefile
-	debian/Makefile
 	innoSetup/Makefile])
 
 MY_ECHO_BUILD_INFO # Recap

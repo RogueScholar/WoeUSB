@@ -1,0 +1,3 @@
+version=4
+opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/WoeUSB-$1\.tar\.gz/ \
+  https://github.com/slacka/WoeUSB/tags .*/v?(\d\S+)\.tar\.gz

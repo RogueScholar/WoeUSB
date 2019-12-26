@@ -1,3 +1,15 @@
+woeusb (@@WOEUSB_VERSION@@) unstable; urgency=medium
+
+  * Re-packaging build from git master
+
+ -- Peter J. Mello <admin@petermello.net>  Wed, 18 Dec 2019 23:52:56 -0800
+
+woeusb (@@WOEUSB_VERSION@@) unstable; urgency=medium
+
+  * No-changes rebuild for Ubuntu 19.04 "Disco Dingo"
+
+ -- Peter J. Mello <admin@petermello.net>  Sat, 13 Apr 2019 11:50:35 -0700
+
 woeusb (@@WOEUSB_VERSION@@) unstable; urgency=low
 
   * This is a fake changelog for packaging purpose, for the actual changelog pl-

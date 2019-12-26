@@ -3,7 +3,7 @@
 [![WoeUSB License](https://img.shields.io/badge/license-gpl-blue.svg)](https://github.com/slacka/WoeUSB/blob/master/COPYING)
 [![Build Status](https://travis-ci.org/slacka/WoeUSB.svg?branch=master)](https://travis-ci.org/slacka/WoeUSB)
 
-![brand](src/data/woeusb-logo.png)[![thumbnail of GUI wrapper screenshot](dev/woeusbgui-screenshot.thumbnail.png)](dev/woeusbgui-screenshot.png)[![thumbnail of CLI application screenshot](dev/woeusb-screenshot.thumbnail.png)](dev/woeusb-screenshot.png)
+![brand](src/data/woeusb-logo.png)[![thumbnail of GUI wrapper screenshot](assets/woeusbgui-screenshot.thumbnail.png)](dev/woeusbgui-screenshot.png)[![thumbnail of CLI application screenshot](assets/woeusb-screenshot.thumbnail.png)](dev/woeusb-screenshot.png)
 
 _A Linux program to create a Windows USB stick installer from a real Windows DVD or image._
 
@@ -14,18 +14,18 @@ This package contains two programs:
 
 Supported images:
 
-Windows Vista, Windows 7, Window 8.x, Windows 10. All languages and any version (home, pro...) and Windows PE are supported.
+Windows Vista, Windows 7, Window 8.x, Windows 10. All languages and any version (Home, Pro...) and Windows PE are supported.
 
-Supported bootmodes:
+Supported boot modes:
 
-* Legacy/MBR-style/IBM PC compatible bootmode
+* Legacy BIOS/MBR-style/IBM PC compatible
 * Native UEFI booting is supported for Windows 7 and later images (limited to the FAT filesystem as the target)
 
 This project is a fork of [Congelli501's WinUSB software](http://en.congelli.eu/prog_info_winusb.html), which has not been maintained since 2012, according to the official website.
 
 ## Installation
-### Prebuilt Packages
-Note that prebuilt packages are not necessarily the latest release and we are NOT responsible for the trustworthiness of these packages.  Regarding any related issues contact its maintainer first.
+### Pre-built Packages
+Note that pre-built packages are not necessarily the latest release and we are NOT responsible for the trustworthiness of these packages.  Regarding any related issues contact its maintainer first.
 
 #### Official Distribution Packages
 * [Fedora](https://src.fedoraproject.org/rpms/WoeUSB) packages maintained by mprahl
@@ -34,7 +34,7 @@ Note that prebuilt packages are not necessarily the latest release and we are NO
 
 #### Third-party Distribution Packages
 * [Arch Linux](https://aur.archlinux.org/packages/woeusb-git/) packages maintained by darkfm
-* [Ubuntu](https://launchpad.net/%7Enilarimogard/+archive/ubuntu/webupd8) packages maintained by [WebUpd8](http://www.webupd8.org/)
+* [Ubuntu](https://launchpad.net/~roguescholar/+archive/ubuntu/ppa) packages maintained by [RogueScholar](https://launchpad.net/~roguescholar)
 
 ### Build from Source
 The following are the instructions to install WoeUSB if prebuilt version is not available or too old.
