@@ -4,6 +4,7 @@ SUBDIRS = \
 	innoSetup
 
 # M4
+ACLOCAL_AMFLAGS = -I m4
 
 ## Pour fichier COPYING
 pkgdocdir=$(prefix)

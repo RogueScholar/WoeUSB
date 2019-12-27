@@ -6,7 +6,7 @@ SUBDIRS = \
 
 bin_PROGRAMS=woeusbgui
 
-INCLUDES = $(CFLAGS_ALL)
+AM_CPPFLAGS = $(CFLAGS_ALL)
 
 woeusbgui_LDFLAGS = $(EXTRA_LDFLAGS)
 	
@@ -42,7 +42,7 @@ woeusbgui_SOURCES=$(woeusbguiSrcBase) rc.rc
 else
 woeusbgui_SOURCES=$(woeusbguiSrcBase)
 endif
-## --------------- Resources windows --------------- 
+## --------------- Resources windows ---------------
 
 # Install my_script in $(bindir) and distribute it.
 dist_bin_SCRIPTS = woeusb

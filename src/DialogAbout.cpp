@@ -39,12 +39,12 @@ DialogAbout::DialogAbout( wxWindow* parent, wxWindowID id, const wxString& title
 	sizerTxt = new wxBoxSizer( wxVERTICAL );
 
 	m_staticTextTitre = new wxStaticText( this, wxID_ANY, PROG_FULL_NAME_GETTEXT);
-	m_staticTextTitre->SetFont( wxFont( 16, 74, 90, 92, false, wxT("Sans")));
+    m_staticTextTitre->SetFont( wxFont(16, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxEmptyString, wxFONTENCODING_SYSTEM));
 	m_staticTextTitre->SetForegroundColour( wxColour( 0, 60, 118 ) );
 	sizerTxt->Add( m_staticTextTitre, 0, wxEXPAND|wxLEFT|wxRIGHT|wxTOP, 5 );
 
 	m_staticTextVersion = new wxStaticText( this, wxID_ANY, wxString::Format(_("Version %s"), NUM_VERSION));
-	m_staticTextVersion->SetFont( wxFont( 10, 74, 90, 92, false, wxT("Sans") ) );
+    m_staticTextVersion->SetFont( wxFont(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxEmptyString, wxFONTENCODING_SYSTEM) );
 	m_staticTextVersion->SetForegroundColour( wxColour( 69, 141, 196 ) );
 	sizerTxt->Add( m_staticTextVersion, 0, wxLEFT, 5 );
 	sizerImg->Add( sizerTxt, 0, 0, 5 );
@@ -74,10 +74,10 @@ DialogAbout::DialogAbout( wxWindow* parent, wxWindowID id, const wxString& title
 
 	m_NotebookAutorLicence->AddPage(LicenceTxt, _("License"));
 
-	sizerAll->Add( m_NotebookAutorLicence, 1, wxEXPAND | wxALL, 5 );
+    sizerAll->Add(m_NotebookAutorLicence, 1, wxEXPAND|wxALL, 5);
 
 	m_BtOk = new wxButton(this, wxID_OK);
-	sizerAll->Add( m_BtOk, 0, wxALIGN_RIGHT | wxBOTTOM | wxRIGHT, 5 );
+    sizerAll->Add(m_BtOk, 0, wxALIGN_RIGHT|wxBOTTOM|wxRIGHT, 5);
 	m_BtOk->SetFocus();
 
 	this->SetSizer( sizerAll );

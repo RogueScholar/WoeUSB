@@ -67,7 +67,7 @@ MainPanel::MainPanel(wxWindow* parent, wxWindowID id, const wxPoint& pos, const 
     // File system
     wxString rbxFs[] = { wxT("FAT"), wxT("NTFS") };
     m_fsRadio = new wxRadioBox(this, wxID_ANY, _("File system"), wxDefaultPosition, wxDefaultSize, WXSIZEOF(rbxFs), rbxFs);
-    MainSizer->Add(m_fsRadio, 0, wxEXPAND | wxALL | wxALIGN_CENTER, 20);
+    MainSizer->Add(m_fsRadio, 0, wxEXPAND|wxALL, 20);
 
     // Target
     MainSizer->AddSpacer(30);
