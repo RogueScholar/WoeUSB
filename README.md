@@ -75,7 +75,7 @@ $ dpkg-buildpackage -uc -b # NOTE: Currently, due to a bug in the build system, 
 $ sudo gdebi ../woeusb_<version>_<architecture>.deb
 
 # Generic method
-$ autoreconf --force --install # Most non-Debian derived distros will need this
+$ ./autogen.sh
 $ ./configure
 $ make
 $ sudo make install

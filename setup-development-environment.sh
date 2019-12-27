@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 #shellcheck disable=SC2034
 
-## Makes debuggers' life easier - Unofficial Bash Strict Mode
-## BASHDOC: Shell Builtin Commands - Modifying Shell Behavior - The Set Builtin
 set -o errexit
 set -o errtrace
 set -o nounset
@@ -24,9 +22,7 @@ for required_command in \
 	fi
 done
 
-## Non-overridable Primitive Variables
-## BASHDOC: Shell Variables » Bash Variables
-## BASHDOC: Basic Shell Features » Shell Parameters » Special Parameters
+# Non-overridable primitive variables
 if [ -v "BASH_SOURCE[0]" ]; then
 	RUNTIME_EXECUTABLE_PATH="$(realpath --strip "${BASH_SOURCE[0]}")"
 	RUNTIME_EXECUTABLE_FILENAME="$(basename "${RUNTIME_EXECUTABLE_PATH}")"
@@ -43,8 +39,8 @@ fi
 declare -ar RUNTIME_COMMANDLINE_PARAMETERS=("${@}")
 
 ## init function: entrypoint of main program
-## This function is called near the end of the file,
-## with the script's command-line parameters as arguments
+# This function is called near the end of the file,
+# with the script's command-line parameters as arguments
 init(){
 	if ! process_commandline_parameters; then
 		printf\
@@ -83,8 +79,7 @@ init(){
 	exit 0
 }; declare -fr init
 
-## Traps: Functions that are triggered when certain condition occurred
-## Shell Builtin Commands » Bourne Shell Builtins » trap
+# Traps: Functions that are triggered when certain condition occurred
 trap_errexit(){
 	local line_number="${1}"
 
