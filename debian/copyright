@@ -1,16 +1,20 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: WoeUSB
 Upstream-Contact: WoeUSB Issue Tracker <https://github.com/slacka/WoeUSB/issues>
-Source: https://github.com/slacka/WoeUSB
+Source: https://github.com/RogueScholar/WoeUSB
 
 Files: *
-Copyright: 2013, Colin Gille <colingille@hotmail.com>
-           2017-2019, slacka
+Copyright: 2008–2013, Colin Gille <colingille@hotmail.com>
+           2015–2017, Luke Benes <lukebenes@yahoo.com>
+           2016–2019, 林博仁 (Buo-Ren Lin) <Buo.Ren.Lin@gmail.com>
+           2019-2020, Peter J. Mello <admin@petermello.net>
 License: GPL-3.0-or-later
 
 Files: debian/*
-Copyright: 2019, Peter J. Mello <admin@petermello.net>
-License: Apache-2.0
+Copyright: 2012–2013, Colin Gille <colingille@hotmail.com>
+           2016–2019, 林博仁 (Buo-Ren Lin) <Buo.Ren.Lin@gmail.com>
+           2019-2020, Peter J. Mello <admin@petermello.net>
+License: Apache-2.0 OR GPL-3.0-or-later
 
 License: GPL-3.0-or-later
  This program is free software: you can redistribute it and/or modify it under
@@ -39,4 +43,4 @@ License: Apache-2.0
  specific language governing permissions and limitations under the License.
  .
  On Debian(-based) GNU/Linux systems, the full text of the Apache License,
- Version 2, can be found in the file `/usr/share/common-licenses/Apache-2.0'.
+ Version 2.0, can be found in the file `/usr/share/common-licenses/Apache-2.0'.

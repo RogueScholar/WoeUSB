@@ -2,19 +2,21 @@ Source: woeusb
 Section: utils
 Priority: optional
 Maintainer: Peter J. Mello <admin@petermello.net>
+Uploaders: 林博仁 (Buo-Ren, Lin) <Buo.Ren.Lin@gmail.com>
 Build-Depends: debhelper-compat (= 12), realpath | coreutils (>= 8.23),
- libwxgtk3.0-gtk3-dev | libwxgtk3.1unofficial3-dev
-Standards-Version: 4.4.1
+ libwxgtk3.0-gtk3-dev | libwxgtk3.1unofficial3-dev, git-core
+Standards-Version: 4.5.0
 Homepage: https://github.com/slacka/WoeUSB
-Vcs-Git: https://github.com/slacka/WoeUSB.git
-Vcs-Browser: https://github.com/slacka/WoeUSB/
+Vcs-Git: https://github.com/RogueScholar/WoeUSB.git
+Vcs-Browser: https://github.com/RogueScholar/WoeUSB
 Rules-Requires-Root: no
 
 Package: woeusb
 Architecture: any
 Depends: bash (>=4.3), dosfstools, ntfs-3g, fdisk | gdisk, gettext, grub2-common,
  grub-pc-bin | grub-efi-amd64-bin | grub-efi-ia32-bin, parted, wget, p7zip-full,
- policykit-1, realpath | coreutils (>= 8.23), ${shlibs:Depends}, ${misc:Depends}
+ policykit-1, realpath | coreutils (>= 8.23), wimtools, ${shlibs:Depends},
+ ${misc:Depends}
 Description: Bootable Windows installation/PE USB storage creator
  This package contains two programs:
  .
@@ -25,3 +27,6 @@ Description: Bootable Windows installation/PE USB storage creator
  .
  Supported images: Windows Vista~10+ installation media for any language and
  edition(Home/Professional...) and Windows PE-based media.
+ .
+ WoeUSB is a fork of Colin GILLE / congelli501's WinUSB software.
+ http://en.congelli.eu/prog_info_winusb.html
