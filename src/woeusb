@@ -43,8 +43,6 @@ for critical_command in realpath basename dirname mktemp; do
 done
 
 ## Non-overridable Primitive Variables
-## BASHDOC: Shell Variables » Bash Variables
-## BASHDOC: Basic Shell Features » Shell Parameters » Special Parameters
 if [ -v 'BASH_SOURCE[0]' ]; then
 	RUNTIME_EXECUTABLE_PATH="$(realpath --strip "${BASH_SOURCE[0]}")"
 	RUNTIME_EXECUTABLE_FILENAME="$(basename "${RUNTIME_EXECUTABLE_PATH}")"
@@ -1367,7 +1365,7 @@ mount_target_filesystem(){
 
 	mount \
 		--options "${mount_options}" \
-		${fstype_options} \
+		"${fstype_options}" \
 		"${target_partition}" \
 		"${target_fs_mountpoint}" \
 		|| (
