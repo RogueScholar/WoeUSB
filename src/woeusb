@@ -807,10 +807,7 @@ check_runtime_dependencies() {
     result=failed
   fi
 
-  if command -v grub-install.unsupported &>/dev/null; then
-    command_grubinstall_ref=grub-install.unsupported
-    name_grub_prefix_ref=grub
-  elif command -v grub-install &>/dev/null; then
+  if command -v grub-install &>/dev/null; then
     command_grubinstall_ref=grub-install
     name_grub_prefix_ref=grub
   elif command -v grub2-install &>/dev/null; then
@@ -1282,6 +1279,12 @@ check_fat32_filesize_limitation() {
 
   while IFS= read -r -d '' file; do
     if (("$(stat -c '%s' "$file")" > 4294967295)); then # Max fat32 file size is 2^32 - 1 bytes
+      if [[ "${file}" == */install.wim ]]; then
+        printf_with_color \
+          yellow \
+          'Detected large "install.wim", will try to split it in multiple chunks\n'
+        continue
+      fi
       printf_with_color \
         red \
         'Error: File "%s" in source image has exceed the FAT32 Filesystem 4GiB Single File Size Limitation and cannot be installed.  You must specify a different --target-filesystem.\n' \
@@ -1418,6 +1421,8 @@ mount_target_filesystem() {
   # ENUM_SUPPORTED_FILESYSTEMS
   local target_fs_type="$1"
 
+  local mount_options='defaults'
+
   echo_with_color green 'Mounting target filesystem...'
 
   mkdir \
@@ -1553,14 +1558,19 @@ copy_filesystem_files() {
       if [ "$verbose" = true ]; then
         echo -e "\\nINFO: Copying \"$source_file\"..."
       fi
-      if [ "$source_file_size" -lt "$DD_BLOCK_SIZE" ]; then
-        cp "$source_file" "$dest_file"
+      if [ "$source_file_size" -gt 4294967295 ] && [[ "${source_file}" == */install.wim ]]; then
+        echo -e "\\nSplitting large install.wim image"
+        wimsplit "$source_file" "$(echo "$dest_file" | sed 's/install.wim$/install.swm/g')" 3800
       else
-        copy_large_file \
-          "$source_file" \
-          "$dest_file" \
-          "$copied_size" \
-          "$total_size"
+        if [ "$source_file_size" -lt "$DD_BLOCK_SIZE" ]; then
+          cp "$source_file" "$dest_file"
+        else
+          copy_large_file \
+            "$source_file" \
+            "$dest_file" \
+            "$copied_size" \
+            "$total_size"
+        fi
       fi
     else
       echo_with_color red "${FUNCNAME[0]}: Error: Unknown type of '$source_file'!" >&2
