@@ -1434,12 +1434,16 @@ mount_target_filesystem() {
     )
 
   # Determine proper mount options according to filesystem type
+  local mount_options='defaults'
+  local fstype_options=''
+
   case "$target_fs_type" in
     FS_FAT)
-      mount_options='utf8=1'
+      mount_options+=',utf8=1'
+      fstype_options="-t vfat"
       ;;
     FS_NTFS)
-      :
+      fstype_options="-t ntfs-3g"
       ;;
     *)
       printf_with_color \
@@ -1452,6 +1456,7 @@ mount_target_filesystem() {
 
   mount \
     --options "$mount_options" \
+    "$fstype_options" \
     "$target_partition" \
     "$target_fs_mountpoint" ||
     (
@@ -1784,8 +1789,9 @@ workaround_linux_make_writeback_buffering_not_suck() {
       echo_with_color \
         yellow \
         'Resetting workaround to prevent 64-bit systems with big primary memory from being unresponsive during copying files.'
-      echo 0 >/proc/sys/vm/dirty_background_bytes
-      echo 0 >/proc/sys/vm/dirty_bytes
+
+      { echo 0 >/proc/sys/vm/dirty_background_bytes; } || { echo_with_color yellow 'Warning!: command "echo 0 > /proc/sys/vm/dirty_background_bytes" - returned code  $?'; }
+      { echo 0 >/proc/sys/vm/dirty_bytes; } || { echo_with_color yellow 'Warning: command "echo 0 > /proc/sys/vm/dirty_bytes" - returned code  $?'; }
       ;;
     *)
       printf_with_color \
