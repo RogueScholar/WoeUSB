@@ -1,0 +1,15 @@
+---
+version: "1"
+rules:
+  - base: master
+    upstream: slacka:master
+    mergeMethod: rebase
+    mergeUnstable: false
+    assignees:
+      - RogueScholar
+    reviewers:
+      - RogueScholar
+    conflictReviewers:
+      - RogueScholar
+label: ":arrow_heading_down: pull"
+...
